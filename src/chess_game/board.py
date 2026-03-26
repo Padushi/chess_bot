@@ -28,8 +28,9 @@ class Board():
 		for i in fen[0]:
 			if i.isdigit():
 				col += int(i)
-			elif i.lower() in 'rnbqk':
+			elif i.lower() in 'rnbqkp':
 				board[row][col] = i
+				col += 1
 			if col == 8:
 				row += 1
 				col = 0
@@ -40,6 +41,8 @@ class Board():
 			print(f"+---+---+---+---+---+---+---+---+")
 			print(f"| {self.position[i][0]} | {self.position[i][1]} | {self.position[i][2]} | {self.position[i][3]} | {self.position[i][4]} | {self.position[i][5]} | {self.position[i][6]} | {self.position[i][7]} |")
 		print(f"+---+---+---+---+---+---+---+---+")
+
+	
 	
 default_board = Board('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')	
 
