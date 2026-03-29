@@ -12,15 +12,16 @@ class Board():
 		self.position = self.position_from_fen()
 
 	def position_from_fen(self):
+
 		fen = self.state.split()
-		board = [[' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' ']]
+		board = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],#h1
+				[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], #g1 
+				[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], #f1 
+				[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], #e1 
+				[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], #d1 
+				[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], #c1 
+				[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], #b1 
+				[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']] #a1 a2 a3 a4 a5 a6 a7 a8
 		
 		col = 0
 		row = 0
@@ -39,13 +40,16 @@ class Board():
 	def print_board_from_position(self):
 		for i in range(8):
 			print(f"+---+---+---+---+---+---+---+---+")
-			print(f"| {self.position[i][0]} | {self.position[i][1]} | {self.position[i][2]} | {self.position[i][3]} | {self.position[i][4]} | {self.position[i][5]} | {self.position[i][6]} | {self.position[i][7]} |")
+			print(f"| {self.position[i][0]} | {self.position[i][1]} | {self.position[i][2]} | {self.position[i][3]} | {self.position[i][4]} | {self.position[i][5]} | {self.position[i][6]} | {self.position[i][7]} | {i+1}")
 		print(f"+---+---+---+---+---+---+---+---+")
+		print("  h   g   f   e   d   c   b   a")
 
-	
-	
-default_board = Board('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')	
 
-print(default_board.state)
-default_board.print_board_from_position()
+
+
+
+# default_board = Board('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')	
+
+# print(default_board.state)
+# default_board.print_board_from_position()
 			
