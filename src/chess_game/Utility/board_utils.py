@@ -26,3 +26,11 @@ def get_occupied_squares(board):
 
 	return occupied_squares
 
+def position_in_board(position):
+	'''
+	Returns True if position in algebraic notation is a valid cell in 
+	the chess board
+	'''
+
+	return ord(position[0]) in range(ord('a'), ord('h')+1) and int(position[1]) in range(1,9)
+
