@@ -18,10 +18,9 @@ def get_occupied_squares(board):
 	'''
 	
 	occupied_squares = []
-	for rank in board:
-		for file in rank:
+	for rank in range(8):
+		for file in range(8):
 			if board[rank][file] != ' ':
-
 				occupied_squares.append(position_from_coordinates(rank, file))
 
 	return occupied_squares
