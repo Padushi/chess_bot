@@ -1,3 +1,4 @@
 src/chess_game/__pycache__/
+src/chess_game/debug.py
 stockfish
 .vscode/
