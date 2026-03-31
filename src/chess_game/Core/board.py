@@ -1,6 +1,5 @@
 print("\n\033[95mboard.py is initialized \033[0m")
 import pieces
-import board_utils
 
 class Board():
 
@@ -49,8 +48,8 @@ class Board():
 		print("  h   g   f   e   d   c   b   a")
 
 
-# default_board = Board('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')	
+default_board = Board('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')	
 
-# default_board.print_board_from_position()
+default_board.print_board_from_position()
 
 
