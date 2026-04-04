@@ -12,4 +12,7 @@ class Piece():
 		self.position = new_position
 		self.has_moved = True
 
+
+def add(a,b):
+	return a + b
 	
