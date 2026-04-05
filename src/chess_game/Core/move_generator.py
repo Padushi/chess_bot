@@ -1,4 +1,4 @@
-import board_utils
+from ..Utilities import board_utils
 
 
 def generate_diagonal_moves(position, distance):
@@ -27,5 +27,4 @@ def generate_orthogonal_moves(position, distance):
 			
 	return list(filter(board_utils.position_in_board, orthogonal_tiles))
 	
-print(generate_diagonal_moves('d4', 1))
-print(generate_orthogonal_moves('d4', 5))
+
