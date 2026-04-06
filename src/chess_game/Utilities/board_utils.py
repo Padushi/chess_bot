@@ -27,8 +27,6 @@ def get_occupied_squares(board):
 	return occupied_squares
 
 
-	
-	
 
 def print_board_from_position(board):
 	for i in range(8):

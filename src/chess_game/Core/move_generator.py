@@ -14,7 +14,7 @@ def generate_diagonal_moves(position, distance):
 		diagonal_tiles.append(chr(ord(position[0]) - i) + str(int(position[1]) + i))
 		diagonal_tiles.append(chr(ord(position[0]) - i) + str(int(position[1]) - i))
 			
-	return list(filter(board_utils.position_in_board, diagonal_tiles))
+	return set(filter(board_utils.position_in_board, diagonal_tiles))
 
 def generate_orthogonal_moves(position, distance):
 
@@ -25,6 +25,6 @@ def generate_orthogonal_moves(position, distance):
 		orthogonal_tiles.append(position[0] + str((int(position[1]) + i)%8))
 		orthogonal_tiles.append(position[0] + str((int(position[1]) - i)%8))
 			
-	return list(filter(board_utils.position_in_board, orthogonal_tiles))
+	return set(filter(board_utils.position_in_board, orthogonal_tiles))
 	
 
