@@ -25,6 +25,15 @@ def get_occupied_squares(board):
 
 	return occupied_squares
 
+
+
+def print_board_from_position(board):
+	for i in range(8):
+		print(f"+---+---+---+---+---+---+---+---+")
+		print(f"| {board[i][0]} | {board[i][1]} | {board[i][2]} | {board[i][3]} | {board[i][4]} | {board[i][5]} | {board[i][6]} | {board[i][7]} | {i+1}")
+	print(f"+---+---+---+---+---+---+---+---+")
+	print("  h   g   f   e   d   c   b   a")
+
 def position_in_board(position):
 	'''
 	Returns True if position in algebraic notation is a valid cell in 
