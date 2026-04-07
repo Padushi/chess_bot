@@ -9,30 +9,18 @@ def coordinates_from_position(position: str) -> tuple[int,int]:
 	ex: f5 -> (2, 4)
 	'''
 
-	return (ord('a') + 7 - ord(position[0]), int(position[1])-1)
+	return (int(position[1])-1, ord('a') + 7 - ord(position[0]))
 
-def get_occupied_squares(board):
-	'''
-	Loops through the board, adding the position of each cell occupied 
-	with a piece to a list, returns the list.
-	'''
-	
-	occupied_squares = []
-	for rank in range(8):
-		for file in range(8):
-			if board[rank][file] != ' ':
-				occupied_squares.append(position_from_coordinates(rank, file))
 
-	return occupied_squares
 
 
 
 def print_board_from_position(board):
 	for i in range(8):
 		print(f"+---+---+---+---+---+---+---+---+")
-		print(f"| {board[i][0]} | {board[i][1]} | {board[i][2]} | {board[i][3]} | {board[i][4]} | {board[i][5]} | {board[i][6]} | {board[i][7]} | {i+1}")
+		print(f"| {board[i][0]} | {board[i][1]} | {board[i][2]} | {board[i][3]} | {board[i][4]} | {board[i][5]} | {board[i][6]} | {board[i][7]} | {8-i}")
 	print(f"+---+---+---+---+---+---+---+---+")
-	print("  h   g   f   e   d   c   b   a")
+	print("  a   b   c   d   e   f   g   h")
 
 def position_in_board(position):
 	'''
@@ -42,3 +30,5 @@ def position_in_board(position):
 
 	return ord(position[0]) in range(ord('a'), ord('h')+1) and int(position[1]) in range(1,9)
 
+def position_is_occupied(board, position):
+	return board[coordinates_from_position(position)[0]][coordinates_from_position(position)[1]]

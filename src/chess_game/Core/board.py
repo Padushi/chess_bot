@@ -1,6 +1,4 @@
 print("\n\033[95mboard.py is initialized \033[0m")
-
-
 class Board():
 
 	def __init__(self,state):
