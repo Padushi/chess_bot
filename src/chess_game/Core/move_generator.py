@@ -27,4 +27,14 @@ def generate_orthogonal_moves(position, distance):
 			
 	return set(filter(board_utils.position_in_board, orthogonal_tiles))
 	
+def get_queen_moves(position):
+	return generate_diagonal_moves(position, 8).union(generate_orthogonal_moves(position, 8))
 
+def get_king_moves(position):
+	return generate_diagonal_moves(position, 1).union(generate_orthogonal_moves(position, 1))
+
+def get_rook_moves(position):
+	return generate_orthogonal_moves(position, 8)
+
+def get_bishop_moves(position):
+	return generate_diagonal_moves(position, 8)

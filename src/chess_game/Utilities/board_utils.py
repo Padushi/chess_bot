@@ -12,9 +12,6 @@ def coordinates_from_position(position: str) -> tuple[int,int]:
 	return (int(position[1])-1, ord('a') + 7 - ord(position[0]))
 
 
-
-
-
 def print_board_from_position(board):
 	for i in range(8):
 		print(f"+---+---+---+---+---+---+---+---+")

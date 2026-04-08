@@ -1,11 +1,13 @@
 print("\n\033[95mpieces.py is initialized \033[0m")
 from ..Core import move_generator
+from ..Utilities import board_utils
 
 class Piece():
 
-	def __init__(self, name, position, has_moved):
+	def __init__(self, name, color, position, has_moved = True):
 		
 		self.name = name
+		self.color = color
 		self.position = position
 		self.has_moved = has_moved
 	
@@ -13,15 +15,16 @@ class Piece():
 		self.position = new_position
 		self.has_moved = True
 
-def get_queen_moves(position):
-	return move_generator.generate_diagonal_moves(position, 8).union(move_generator.generate_orthogonal_moves(position, 8))
 
-def get_king_moves(position):
-	return move_generator.generate_diagonal_moves(position, 1).union(move_generator.generate_orthogonal_moves(position, 1))
 
-def get_rook_moves(position):
-	return move_generator.generate_orthogonal_moves(position, 8)
-
-def get_bishop_moves(position):
-	return move_generator.generate_diagonal_moves(position, 8)
-
+def get_occupied_squares(board):
+	'''
+	Loops through the board, adding the position of each cell occupied 
+	with a piece to a list, returns the list.
+	'''
+	
+	occupied_squares = {}
+	for rank in range(8):
+		for file in range(8):
+			if board[rank][file] != ' ':
+				occupied_squares.update(board_utils.position_from_coordinates(rank, file))
