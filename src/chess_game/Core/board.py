@@ -8,6 +8,9 @@ class Board():
 
 		self.state = state
 		self.board = self.board_from_fen()
+		fields = self.state.split()
+		self.to_move = fields[1]
+
 
 	def board_from_fen(self):
 
@@ -35,10 +38,5 @@ class Board():
 				row += 1
 				col = 0
 		return board
-
-
-
-
-
-
-
+	
+	

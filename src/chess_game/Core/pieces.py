@@ -4,18 +4,24 @@ from ..Utilities import board_utils
 
 class Piece():
 
-	def __init__(self, name, color, position, has_moved = True):
+	def __init__(self, name, position):
 		
 		self.name = name
-		self.color = color
 		self.position = position
-		self.has_moved = has_moved
+		if self.name.isupper():
+			self.color = 'w'
+		else:
+			self.color = 'b'
+			
+	def __repr__(self):
+		if self.color == 'w':
+			color = "White"
+		else:
+			color = "Black"
+		return(f'\nPiece type: {self.name}, Position: {self.position}, Color: {color}')
 	
 	def move_piece(self, new_position):
 		self.position = new_position
-		self.has_moved = True
-
-
 
 def get_occupied_squares(board):
 	'''
@@ -23,8 +29,23 @@ def get_occupied_squares(board):
 	with a piece to a list, returns the list.
 	'''
 	
-	occupied_squares = {}
-	for rank in range(8):
-		for file in range(8):
-			if board[rank][file] != ' ':
-				occupied_squares.update(board_utils.position_from_coordinates(rank, file))
+	occupied_squares = set()
+	for file in range(8):
+		for rank in range(8):
+			if board[file][rank] != ' ':
+				occupied_squares.add(board_utils.position_from_coordinates(rank, file))
+	return occupied_squares
+
+def get_piece_list(board):
+	occupied_squares = get_occupied_squares(board)
+	piece_list = []
+
+	for i in occupied_squares:
+		coordinates = board_utils.coordinates_from_position(i)
+		piece_list.append(Piece(board[coordinates[0]][coordinates[1]], i))
+
+	return piece_list
+
+
+	
+

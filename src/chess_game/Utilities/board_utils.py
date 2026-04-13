@@ -1,3 +1,5 @@
+from ..Core import *
+
 def position_from_coordinates(rank: int, file: int) -> str:
 	return chr(104-rank) + str(file+1)
 
@@ -12,12 +14,18 @@ def coordinates_from_position(position: str) -> tuple[int,int]:
 	return (int(position[1])-1, ord('a') + 7 - ord(position[0]))
 
 
-def print_board_from_position(board):
+def print_board_from_position(self: board.Board):
 	for i in range(8):
 		print(f"+---+---+---+---+---+---+---+---+")
-		print(f"| {board[i][0]} | {board[i][1]} | {board[i][2]} | {board[i][3]} | {board[i][4]} | {board[i][5]} | {board[i][6]} | {board[i][7]} | {8-i}")
+		print(f"| {self.board[i][0]} | {self.board[i][1]} | {self.board[i][2]} | {self.board[i][3]} | {self.board[i][4]} | {self.board[i][5]} | {self.board[i][6]} | {self.board[i][7]} | {8-i}")
 	print(f"+---+---+---+---+---+---+---+---+")
 	print("  a   b   c   d   e   f   g   h")
+
+	if self.to_move == 'w':
+		print("\nWhite to move\n")
+	elif self.to_move == 'b':
+		print("\nBlack to move\n")
+	
 
 def position_in_board(position):
 	'''
