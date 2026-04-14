@@ -40,7 +40,13 @@ def generate_knight_moves(position):
 	knight_tiles.append(chr(ord(position[0]) - 1) + str(int(position[1]) - 2))
 
 	return set(filter(board_utils.position_in_board, knight_tiles))
-	
+
+def generate_pawn_moves(position, color, board):
+	if color == 'w':
+		if position[1] == '2':
+			pass
+
+
 def get_queen_moves(position):
 	return generate_diagonal_moves(position, 8).union(generate_orthogonal_moves(position, 8))
 

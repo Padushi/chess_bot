@@ -7,3 +7,5 @@ default_board = board.Board('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq 
 board_utils.print_board_from_position(default_board)
 print(move_generator.generate_knight_moves('g1'))
 # print(move_generator.generate_knight_moves('f4'))
+
+print(board_utils.shift_file('d4', 2))

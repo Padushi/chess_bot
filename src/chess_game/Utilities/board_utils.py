@@ -39,3 +39,15 @@ def position_in_board(position):
 
 def position_is_occupied(board, position):
 	return board[coordinates_from_position(position)[0]][coordinates_from_position(position)[1]]
+
+def shift_rank(position, amount):
+		shifted_pos = position[0] + str(int(position[1] + amount))
+		if position_in_board(shifted_pos):
+			return shifted_pos
+		return None
+
+def shift_file(position, amount):
+	shifted_pos = chr(ord(position[0]) + amount) + position[1]
+	if position_in_board(shifted_pos):
+		return shifted_pos
+	return None
