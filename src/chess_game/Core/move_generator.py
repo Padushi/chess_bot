@@ -26,6 +26,20 @@ def generate_orthogonal_moves(position, distance):
 		orthogonal_tiles.append(position[0] + str((int(position[1]) - i)%8))
 			
 	return set(filter(board_utils.position_in_board, orthogonal_tiles))
+
+def generate_knight_moves(position):
+	knight_tiles = []
+
+	knight_tiles.append(chr(ord(position[0]) + 2) + str(int(position[1]) + 1))
+	knight_tiles.append(chr(ord(position[0]) - 2) + str(int(position[1]) + 1))
+	knight_tiles.append(chr(ord(position[0]) + 2) + str(int(position[1]) - 1))
+	knight_tiles.append(chr(ord(position[0]) - 2) + str(int(position[1]) - 1))
+	knight_tiles.append(chr(ord(position[0]) + 1) + str(int(position[1]) + 2))
+	knight_tiles.append(chr(ord(position[0]) - 1) + str(int(position[1]) + 2))
+	knight_tiles.append(chr(ord(position[0]) + 1) + str(int(position[1]) - 2))
+	knight_tiles.append(chr(ord(position[0]) - 1) + str(int(position[1]) - 2))
+
+	return set(filter(board_utils.position_in_board, knight_tiles))
 	
 def get_queen_moves(position):
 	return generate_diagonal_moves(position, 8).union(generate_orthogonal_moves(position, 8))

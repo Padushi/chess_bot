@@ -32,8 +32,10 @@ def position_in_board(position):
 	Returns True if position in algebraic notation is a valid cell in 
 	the chess board
 	'''
-
-	return ord(position[0]) in range(ord('a'), ord('h')+1) and int(position[1]) in range(1,9)
+	try:
+		return ord(position[0]) in range(ord('a'), ord('h')+1) and int(position[1]) in range(1,9)
+	except ValueError:
+		return False
 
 def position_is_occupied(board, position):
 	return board[coordinates_from_position(position)[0]][coordinates_from_position(position)[1]]
