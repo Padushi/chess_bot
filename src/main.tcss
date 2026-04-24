@@ -1,0 +1,24 @@
+
+#box {
+	border: heavy white;
+	border-left: outer red;
+	border: round orange 500%;
+	border-title-style: bold underline;
+	margin: 1 2;
+	padding: 1 2;
+	content-align: left middle;
+	height: auto;
+	text-style:bold;
+}
+
+#chess {
+	border: heavy white;
+	border-left: outer red;
+	border: round darkcyan 500%;
+	border-title-style: bold underline;
+	margin: 1 2;
+	padding: 1 2;
+	content-align: left middle;
+	width: auto;
+	text-style: bold;
+}

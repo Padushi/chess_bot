@@ -39,4 +39,18 @@ class Board():
 				col = 0
 		return board
 	
+	def __str__(self):
+		board_string = '''    a   b   c   d   e   f   g   h\n  +---+---+---+---+---+---+---+---+\n'''
+		for i in range(8):
+			board_string += f'{8-i} | {self.board[i][0]} | {self.board[i][1]} | {self.board[i][2]} | {self.board[i][3]} | {self.board[i][4]} | {self.board[i][5]} | {self.board[i][6]} | {self.board[i][7]} | {8-i}\n'
+			board_string += '  +---+---+---+---+---+---+---+---+\n'
+		board_string += f'    a   b   c   d   e   f   g   h'
+
+
+		if self.to_move == 'w':
+			board_string += "\n\nWhite to move\n"
+		elif self.to_move == 'b':
+			board_string += "\n\nBlack to move\n"
+
+		return board_string
 	
