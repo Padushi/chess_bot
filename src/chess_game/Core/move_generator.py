@@ -9,10 +9,11 @@ def generate_diagonal_moves(position, distance):
 	valid_files = 'abcdefgh'
 	diagonal_tiles = []
 	for i in range(1, distance+1):
-		diagonal_tiles.append(chr(ord(position[0]) + i) + str(int(position[1]) + i))
-		diagonal_tiles.append(chr(ord(position[0]) + i) + str(int(position[1]) - i))
-		diagonal_tiles.append(chr(ord(position[0]) - i) + str(int(position[1]) + i))
-		diagonal_tiles.append(chr(ord(position[0]) - i) + str(int(position[1]) - i))
+
+		diagonal_tiles.append(board_utils.shift_file(board_utils.shift_rank(position, i), i))
+		diagonal_tiles.append(board_utils.shift_file(board_utils.shift_rank(position, i), -i))
+		diagonal_tiles.append(board_utils.shift_file(board_utils.shift_rank(position, -i), i))
+		diagonal_tiles.append(board_utils.shift_file(board_utils.shift_rank(position, -i), -i))
 			
 	return set(filter(board_utils.position_in_board, diagonal_tiles))
 
@@ -30,22 +31,34 @@ def generate_orthogonal_moves(position, distance):
 
 def generate_knight_moves(position):
 	knight_tiles = []
+	knight_tiles.append(board_utils.shift_file(board_utils.shift_rank(position, 1), 2))
+	knight_tiles.append(board_utils.shift_file(board_utils.shift_rank(position, 1), -2))
+	knight_tiles.append(board_utils.shift_file(board_utils.shift_rank(position, -1), 2))
+	knight_tiles.append(board_utils.shift_file(board_utils.shift_rank(position, -1), -2))
 
-	knight_tiles.append(chr(ord(position[0]) + 2) + str(int(position[1]) + 1))
-	knight_tiles.append(chr(ord(position[0]) - 2) + str(int(position[1]) + 1))
-	knight_tiles.append(chr(ord(position[0]) + 2) + str(int(position[1]) - 1))
-	knight_tiles.append(chr(ord(position[0]) - 2) + str(int(position[1]) - 1))
-	knight_tiles.append(chr(ord(position[0]) + 1) + str(int(position[1]) + 2))
-	knight_tiles.append(chr(ord(position[0]) - 1) + str(int(position[1]) + 2))
-	knight_tiles.append(chr(ord(position[0]) + 1) + str(int(position[1]) - 2))
-	knight_tiles.append(chr(ord(position[0]) - 1) + str(int(position[1]) - 2))
+	knight_tiles.append(board_utils.shift_rank(board_utils.shift_file(position, 1), 2))
+	knight_tiles.append(board_utils.shift_rank(board_utils.shift_file(position, 1), -2))
+	knight_tiles.append(board_utils.shift_rank(board_utils.shift_file(position, -1), 2))
+	knight_tiles.append(board_utils.shift_rank(board_utils.shift_file(position, -1), -2))
 
 	return set(filter(board_utils.position_in_board, knight_tiles))
 
 def generate_pawn_moves(position, color, board):
+	pawn_tiles = []
 	if color == 'w':
+		pawn_tiles.append(board_utils.shift_rank(position, 1))
 		if position[1] == '2':
-			pass
+			pawn_tiles.append(board_utils.shift_rank(position, 2))
+	else:
+		pawn_tiles.append(board_utils.shift_rank(position, -2))
+		if position[1] == '7':
+			pawn_tiles.append(board_utils.shift_rank(position, -1))
+
+	return set(filter(board_utils.position_in_board, pawn_tiles))
+	
+
+			
+			
 
 
 def get_queen_moves(position):

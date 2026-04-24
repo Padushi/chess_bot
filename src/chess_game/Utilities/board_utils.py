@@ -21,12 +21,12 @@ def position_in_board(position):
 	the chess board
 	'''
 	try:
-		return ord(position[0]) in range(ord('a'), ord('h')+1) and int(position[1]) in range(1,9)
+		return ord(position[0]) in range(ord('a'), ord('h')+1) and int(position[1]) in range(1,9) and len(position) == 2
 	except ValueError:
 		return False
 
 def position_is_occupied(board, position):
-	return board[coordinates_from_position(position)[0]][coordinates_from_position(position)[1]]
+	return board[coordinates_from_position(position)[0]][coordinates_from_position(position)[1]] != ' '
 
 def shift_rank(position, amount):
 		return position[0] + str(int(position[1]) + amount)
